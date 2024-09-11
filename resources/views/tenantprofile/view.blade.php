@@ -292,7 +292,7 @@
                                 </div>
                                 @if ($rooms->isEmpty())
                                 <div class="col-auto">
-                                    <a class="btn btn-primary mx-1" href="/tenant/rooms/create">
+                                    <a class="btn btn-primary mx-1" href="/rooms/create">
                                         <i class="fa fa-home"></i> Add Room
                                     </a>
                                 </div>
@@ -300,7 +300,7 @@
                                 @if (!$rooms->isEmpty())
                                 @if ($beds->isEmpty())
                                 <div class="col-auto">
-                                    <a class="btn btn-primary mx-1" href="/tenant/beds/create">
+                                    <a class="btn btn-primary mx-1" href="/beds/create">
                                         <i class="fa fa-bed"></i> Add Bed
                                     </a>
                                 </div>

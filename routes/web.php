@@ -19,7 +19,15 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $tenantprofiles = \App\Models\TenantProfile::count();
+    $room = \App\Models\Room::count();
+    $bed = \App\Models\Bed::count(); 
+    
+    return view('dashboard', [
+        'tenantprofiles' => $tenantprofiles,
+        'rooms' => $room,
+        'beds' => $bed,
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

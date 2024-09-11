@@ -63,7 +63,7 @@
                   <div class="col-md-4">
                   <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="ex. email@gmail.com" value="{{$tenantprofile->email}}" readonly>
+                    <input type="email" name="email" class="form-control" placeholder="ex. email@gmail.com" value="{{$tenantprofile->email}}">
                     @if ($errors->has('email'))
                     <span class="text-danger" style="color: red">{{ $errors->first('email') }}</span>
                     @endif 

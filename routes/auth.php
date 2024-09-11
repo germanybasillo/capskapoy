@@ -9,6 +9,8 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\BedController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TenantprofileController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,4 +63,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('/tenantprofiles', TenantprofileController::class);
     Route::post('/tenantprofile/store', [TenantprofileController::class, 'store'])->name('tenantprofile.store');
     Route::put('/tenantprofiles/{id}', [TenantProfileController::class, 'update'])->name('tenantprofiles.update');
+
+    Route::resource('/rooms', RoomController::class);
+    Route::post('/room/store', [RoomController::class, 'store'])->name('room.store');
+
+    Route::resource('/beds', BedController::class);
+    Route::post('/bed/store', [BedController::class, 'store'])->name('bed.store');
 });
