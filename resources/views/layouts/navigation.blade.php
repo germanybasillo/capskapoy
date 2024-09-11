@@ -25,7 +25,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/tenant/dashboard" class="brand-link">
+    <a href="/" class="brand-link">
       <img src="/logo.png" alt="Logo" width="230" height="50" style="margin-bottom:-120px;margin-top:-127px"
         style="opacity: .8">
     </a>
@@ -35,7 +35,6 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        
           <li class="nav-item">
             <a href="/dashboard" class="nav-link">
               <i class="nav-icon fa fa-tachometer-alt"></i>
@@ -44,6 +43,7 @@
               </p>
             </a>
           </li>
+          @if (auth()->user()->user_type === 'tenant')
           <li class="nav-item">
             <a href="/tenantprofiles" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
@@ -52,54 +52,81 @@
               </p>
             </a>
           </li>
-          {{-- <li class="nav-item">
-            <a href="/tenant/rooms" class="nav-link">
-              <i class="nav-icon fa fa-home"></i>
-              <p>
-                Room Management
-              </p>
-            </a>
-          </li>
+          @elseif (auth()->user()->user_type === 'rental_owner')
           <li class="nav-item">
-            <a href="/tenant/beds"  class="nav-link">
+            <a href="/rental_owner/bedassigns" class="nav-link">
               <i class="nav-icon fa fa-bed"></i>
               <p>
-                Bed Management
+                Bed Assignment
               </p>
             </a>
-          </li> --}}
-          {{-- <li class="nav-item">
-            <a href="{{route('tenant.notice')}}" class="nav-link">
-              <i class="nav-icon fa fa-bell"></i>
+          </li>
+          <li class="nav-item">
+            <a href="/selecteds" class="nav-link">
+              <i class="nav-icon fa fa-home"></i>
               <p>
-                Notice
+                Room Selected
               </p>
             </a>
-          </li> --}}
+          </li>
+          <li class="nav-item">
+            <a href="/selectbeds" class="nav-link">
+              <i class="nav-icon fa fa-home"></i>
+              <p>
+                Bed Selected
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/rental_owner/bills" class="nav-link">
+              <i class="nav-icon fa fa-money-bill"></i>
+              <p>
+                Utility Bills
+              </p>
+            </a>
+          </li>
           {{-- <li class="nav-item">
-            <a href="{{route('tenant.proof')}}" class="nav-link">
+            <a href="{{route('rental_owner.invoice')}}" class="nav-link">
               <i class="nav-icon fa fa-file-invoice"></i>
               <p>
-                Proof of Payment 
+                Invoice
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('tenant.history')}}" class="nav-link">
-              <i class="nav-icon fa fa-file"></i>
+            <a href="{{route('rental_owner.payment')}}" class="nav-link">
+              <i class="nav-icon fa fa-file-invoice"></i>
               <p>
-                Payment History 
+                Payments 
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('tenant.suggestion')}}" class="nav-link">
-              <i class="nav-icon fa fa-envelope"></i>
+            <a href="{{route('rental_owner.paymenthistory')}}" class="nav-link">
+              <i class="nav-icon fa fa-file "></i>
               <p>
-                Suggestions 
+                Payment History
+              </p>
+            </a>
+          </li>
+          <li class="nav-header">REPORTS</li>
+          <li class="nav-item">
+            <a href="{{route('rental_owner.income')}}" class="nav-link">
+              <i class="nav-icon fa fa-chart-bar"></i>
+              <p>
+                Income Report  
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('rental_owner.collectibles')}}" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Collectibles 
               </p>
             </a>
           </li> --}}
+          @endif
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

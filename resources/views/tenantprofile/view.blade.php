@@ -309,7 +309,7 @@
                                 @if (!$beds->isEmpty())
                                 <div class="col-auto">
                                  <a class="btn btn-primary mx-1" href="/chatify">
-                                     <i class="fa fa-envelope"></i> Contact Rental_Owner
+                                     <i class="fa fa-address-book"></i> Contact Rental_Owner
                                  </a>
                                 </div>
                             </div>

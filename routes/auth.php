@@ -9,8 +9,11 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\BedAssignController;
 use App\Http\Controllers\BedController;
+use App\Http\Controllers\BedSelected;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\RoomSelected;
 use App\Http\Controllers\TenantprofileController;
 use Illuminate\Support\Facades\Route;
 
@@ -69,4 +72,16 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/beds', BedController::class);
     Route::post('/bed/store', [BedController::class, 'store'])->name('bed.store');
+
+    Route::resource('/selecteds', RoomSelected::class);
+    Route::post('/selected/store', [RoomSelected::class, 'store'])->name('selected.store');
+    Route::put('/selecteds/{id}', [RoomSelected::class, 'update'])->name('selecteds.update');
+
+    Route::resource('/selectbeds', BedSelected::class);
+    Route::post('/selectbed/store', [BedSelected::class, 'store'])->name('selectbed.store');
+    Route::put('/selectbeds/{id}', [BedSelected::class, 'update'])->name('selectbeds.update');
+
+    Route::resource('/bedassigns', BedAssignController::class);
+    Route::post('/bedassign/store', [BedAssignController::class, 'store'])->name('bedassign.store');
+    Route::put('/bedassigns/{id}', [BedAssignController::class, 'update'])->name('bedassigns.update');
 });
