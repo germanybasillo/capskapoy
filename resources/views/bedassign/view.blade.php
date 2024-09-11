@@ -1,20 +1,20 @@
 
-<x-owner-app-layout>
+<x-app-layout>
 
     <x-slot name="header">
         <div class="content-header">
             <div class="container-fluid">
                <div class="row mb-2">
                   <div class="col-sm-6">
-                     <h1 class="m-0 text-dark"><span class="fa fa-bed"></span> Bed Assignment</h1>
+                     <h1 class="m-0 text-dark"><span class="fa fa-bed"></span> Beds Assignment</h1>
                   </div>
                   <div class="col-sm-6">
                      <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Beds</li>
+                        <li class="breadcrumb-item active">Bed Assignment</li>
                      </ol>
                   </div>
-                  <a class="btn btn-sm elevation-2" href="/rental_owner/bedassigns/create" style="margin-top: 20px;margin-left: 10px;background-color: #05445E;color: #ddd;"><i
+                  <a class="btn btn-sm elevation-2" href="/bedassigns/create" style="margin-top: 20px;margin-left: 10px;background-color: #05445E;color: #ddd;"><i
                         class="fa fa-user-plus"></i>
                      Add New</a>
                </div>
@@ -44,7 +44,7 @@
                        <td>{{$bedassign->room->start_date}}</td>
                        <td>{{$bedassign->room->due_date}}</td>
                        <td class="text-right">
-                        <a class="btn btn-sm btn-success" href="/rental_owner/bedassigns/{{$bedassign->id}}"><i
+                        <a class="btn btn-sm btn-success" href="/bedassigns/{{$bedassign->id}}"><i
                               class="fa fa-edit"></i></a>
                         <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{$bedassign->id}}"><i
                               class="fa fa-trash-alt"></i></a>
@@ -53,7 +53,7 @@
                   <div id="deleteModal{{$bedassign->id}}" class="modal animated rubberBand delete-modal" role="dialog">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                            <form id="deleteForm{{$bedassign->id}}" action="{{ route('rental_owner.bedassigns.destroy', $bedassign->id) }}" method="post">
+                            <form id="deleteForm{{$bedassign->id}}" action="{{ route('bedassigns.destroy', $bedassign->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <div class="modal-body text-center">
@@ -79,4 +79,4 @@
 
     
 
-    </x-owner-app-layout>
+    </x-app-layout>

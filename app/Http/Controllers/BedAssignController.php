@@ -44,7 +44,7 @@ class BedAssignController extends Controller
         );
         $bedassign= new Bedassign($request->all());
         $bedassign->save();
-        return redirect('/rental_owner/bedassigns')->with('sucess',"Bed-Assigns Data Has Been inserted");
+        return redirect('/bedassigns')->with('sucess',"Bed-Assigns Data Has Been inserted");
     }
 
     public function update(Request $request, $id) {
@@ -58,14 +58,14 @@ class BedAssignController extends Controller
         $bedassign = Bedassign::find($id);
         $bedassign->update($request->all());
     
-        return redirect('/rental_owner/bedassigns')->with('sucess',"Bed-Assigns Data Has Been updated");
+        return redirect('/bedassigns')->with('sucess',"Bed-Assigns Data Has Been updated");
     }
 
     public function destroy($id)
     {
       $bedassign = Bedassign::find($id);
       $bedassign->delete();
-      return redirect('/rental_owner/bedassigns')
+      return redirect('/bedassigns')
         ->with('success', 'Bed-Assigns '.$id.'info deleted successfully');
     }
 }

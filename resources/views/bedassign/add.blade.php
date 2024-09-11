@@ -1,5 +1,5 @@
 
-<x-owner-app-layout>
+<x-app-layout>
 
     <x-slot name="header">
         <section class="content-header">
@@ -23,7 +23,7 @@
             <!-- jquery validation -->
             <div class="card card-success">
               <!-- form start -->
-              <form role="form" id="quickForm" action="{{ route('rental_owner.bedassign.store') }}" method="POST" enctype="multipart/form-data">
+              <form role="form" id="quickForm" action="{{ route('bedassign.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="row">
@@ -112,4 +112,4 @@
 
     
 
-    </x-owner-app-layout>
+    </x-app-layout>

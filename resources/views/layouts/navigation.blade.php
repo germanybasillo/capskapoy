@@ -54,7 +54,7 @@
           </li>
           @elseif (auth()->user()->user_type === 'rental_owner')
           <li class="nav-item">
-            <a href="/rental_owner/bedassigns" class="nav-link">
+            <a href="/bedassigns" class="nav-link">
               <i class="nav-icon fa fa-bed"></i>
               <p>
                 Bed Assignment
