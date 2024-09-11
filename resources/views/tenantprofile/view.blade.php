@@ -286,7 +286,7 @@
                          <div class="container">
                             <div class="row justify-content-center mb-2">
                                 <div class="col-auto">
-                                    <a class="btn btn-primary mx-1" href="/tenant/tenantprofiles/{{$tenantprofile->id}}">
+                                    <a class="btn btn-primary mx-1" href="/tenantprofiles/{{$tenantprofile->id}}">
                                         <i class="fa fa-user-edit"></i> Edit
                                     </a>
                                 </div>
