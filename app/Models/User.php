@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -21,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user_type', // Added user_type to mass assignable attributes
     ];
 
     /**
@@ -40,5 +40,22 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        // No need for casting user_type if it's a string or enum
     ];
+
+    /**
+     * Scope a query to only include tenants.
+     */
+    public function scopeTenants($query)
+    {
+        return $query->where('user_type', 'tenant');
+    }
+
+    /**
+     * Scope a query to only include rental owners.
+     */
+    public function scopeRentalOwners($query)
+    {
+        return $query->where('user_type', 'rental_owner');
+    }
 }
