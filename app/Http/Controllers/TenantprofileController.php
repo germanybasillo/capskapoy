@@ -8,7 +8,6 @@ use App\Models\Room;
 use App\Models\Bed;
 use App\Models\Selected;
 use App\Models\Selectbed;
-use App\Models\Suggestion;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +20,6 @@ class TenantprofileController extends Controller
             'tenantprofiles' => Tenantprofile::where('user_id', Auth::id())->get(),
             'rooms' => Room::where('user_id', Auth::id())->get(),
             'beds' => Bed::where('user_id', Auth::id())->get(),
-            'suggestions' => Suggestion::where('user_id', Auth::id())->get(),
             'selecteds' => Selected::where('id', Auth::id())->get(),
             'selectbeds' => Selectbed::where('id', Auth::id())->get()
         ]);

@@ -78,7 +78,14 @@
         {{-- Messaging area --}}
         <div class="m-body messages-container app-scroll">
             <div class="messages">
-                <p class="message-hint center-el"><span>Please select a chat to start messaging</span></p>
+                <p class="message-hint center-el">
+                    @if (auth()->user()->user_type === 'tenant')
+                    <span> If you have a suggestion, important notice or important business please contact the rental owner.</span>
+                    <span>Please search to start messaging</span>
+                    @elseif (auth()->user()->user_type === 'rental_owner')
+                    <span>Please search to start messaging in the Tenant</span>
+                    @endif
+                </p>
             </div>
             {{-- Typing indicator --}}
             <div class="typing-indicator">
@@ -101,7 +108,11 @@
     <div class="messenger-infoView app-scroll">
         {{-- nav actions --}}
         <nav>
-            <p>{{ Auth::user()->user_type === 'tenant' ? 'Tenant Details' : 'Rental_Owner Details' }}</p>
+            @if (auth()->user()->user_type === 'tenant')
+            <p>Rental_Owner Details</p>
+            @elseif (auth()->user()->user_type === 'rental_owner')
+            <p>Tenant Details</p>
+            @endif
             <a href="#"><i class="fas fa-times"></i></a>
         </nav>
         {!! view('Chatify::layouts.info')->render() !!}

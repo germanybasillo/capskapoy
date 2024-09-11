@@ -85,6 +85,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="/chatify" class="nav-link">
+              <i class="nav-icon fa fa-envelope"></i>
+              <p>
+               Contact Tenant
+              </p>
+            </a>
+          </li>
           {{-- <li class="nav-item">
             <a href="{{route('rental_owner.invoice')}}" class="nav-link">
               <i class="nav-icon fa fa-file-invoice"></i>
