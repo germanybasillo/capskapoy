@@ -308,13 +308,8 @@
                                 @endif
                                 @if (!$beds->isEmpty())
                                 <div class="col-auto">
-                                    <a class="btn btn-primary mx-1" href="/tenant/tenantprofiles/{{$tenantprofile->id}}">
-                                        <i class="fa fa-bell"></i> Notices
-                                    </a>
-                                </div>
-                                <div class="col-auto">
-                                 <a class="btn btn-primary mx-1" href="/tenant/suggestions">
-                                     <i class="fa fa-envelope"></i> Suggestion
+                                 <a class="btn btn-primary mx-1" href="/chatify">
+                                     <i class="fa fa-envelope"></i> Contact Rental_Owner
                                  </a>
                                 </div>
                             </div>
