@@ -37,7 +37,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         
           <li class="nav-item">
-            <a href="/tenant/dashboard" class="nav-link">
+            <a href="/dashboard" class="nav-link">
               <i class="nav-icon fa fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -45,7 +45,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/tenant/tenantprofiles" class="nav-link">
+            <a href="/tenantprofiles" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
               <p>
                 Tenant Profile
