@@ -42,13 +42,19 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+            <a class="underline text-sm text-white dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" 
+            href="{{ route('login') }}" 
+            style="color: white; transition: color 0.3s ease;" 
+            onmouseover="this.style.color='orange';" 
+            onmouseout="this.style.color='white';">
+            {{ __('Already registered?') }}
+        </a>
 
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
+        <x-primary-button class="ml-3" style="background-color: orange; color: white; border: none; border-radius: 0.375rem; padding: 0.5rem 1rem; transition: background-color 0.3s ease, color 0.3s ease;" 
+        onmouseover="this.style.backgroundColor='white'; this.style.color='orange';" 
+        onmouseout="this.style.backgroundColor='orange'; this.style.color='white';">
+        {{ __('Register') }}
+        </x-primary-button>
         </div>
     </form>
 </x-guest-layout>
