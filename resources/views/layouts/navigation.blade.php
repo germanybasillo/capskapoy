@@ -97,14 +97,6 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/rental_owner/bills" class="nav-link">
-              <i class="nav-icon fa fa-money-bill"></i>
-              <p>
-                Utility Bills
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="/chatify" class="nav-link">
               <i class="nav-icon fa fa-envelope"></i>
               <p>
@@ -122,7 +114,7 @@
           </li>
           <li class="nav-item">
             <a href="{{route('rental_owner.payment')}}" class="nav-link">
-              <i class="nav-icon fa fa-file-invoice"></i>
+              <i class="nav-icon fa fa-money-bill"></i>
               <p>
                 Payments 
               </p>
