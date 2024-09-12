@@ -80,10 +80,15 @@
             <div class="messages">
                 <p class="message-hint center-el">
                     @if (auth()->user()->user_type === 'tenant')
-                    <span> If you have a suggestion, important notice or important business please contact the rental owner.</span>
-                    <span>Please search to start messaging</span>
+                    @foreach($rentalOwners as $owner)
+                    <span> If you have a suggestion, important notice or important business please contact the Rental_Owner.Then Also
+                        Discussing about the billing.Please search <span style="color:blue">{{ $owner->name }}</span> to start messaging...</span>
+                    @endforeach
                     @elseif (auth()->user()->user_type === 'rental_owner')
                     <span>Please search to start messaging in the Tenant</span>
+                    @foreach($user as $tenant)
+                    <span style="color:blue;display:flex;margin:10px;">{{ $tenant->name }}</span>
+                    @endforeach
                     @endif
                 </p>
             </div>
@@ -108,11 +113,7 @@
     <div class="messenger-infoView app-scroll">
         {{-- nav actions --}}
         <nav>
-            @if (auth()->user()->user_type === 'tenant')
-            <p>Rental_Owner Details</p>
-            @elseif (auth()->user()->user_type === 'rental_owner')
-            <p>Tenant Details</p>
-            @endif
+            <p>Users Details</p>
             <a href="#"><i class="fas fa-times"></i></a>
         </nav>
         {!! view('Chatify::layouts.info')->render() !!}
