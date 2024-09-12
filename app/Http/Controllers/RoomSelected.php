@@ -120,6 +120,6 @@ class RoomSelected extends Controller
       $selected = Selected::find($id);
       $selected->delete();
       return redirect('/selecteds')
-        ->with('success', 'RoomSelected '.$id.'info deleted successfully');
+        ->with('success', 'RoomSelected info deleted successfully');
     }
 }

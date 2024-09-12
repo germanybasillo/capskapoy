@@ -65,7 +65,7 @@ class TenantprofileController extends Controller
         }
 
         $tenantprofile->save();
-        return redirect('/tenantprofiles')->with('success', "Tenantprofile Data Has Been inserted");
+        return redirect('/tenantprofiles')->with('success', 'Tenantprofile Data Has Been inserted');
     }
     
     public function update(Request $request, $id)
@@ -102,7 +102,7 @@ class TenantprofileController extends Controller
 
         $tenantprofile->save();
 
-        return redirect("/tenantprofiles")->with('success', 'Tenantprofile ' . $request['email'] . ' was updated successfully.');
+        return redirect("/tenantprofiles")->with('success', 'Tenantprofile was updated successfully.');
     }
     
     public function destroy($id)
@@ -110,6 +110,6 @@ class TenantprofileController extends Controller
         $tenantprofile = Tenantprofile::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
         $tenantprofile->delete();
 
-        return redirect("/tenantprofiles")->with('success', 'Tenantprofile '.$id.' info deleted successfully');
+        return redirect("/tenantprofiles")->with('success', 'Tenantprofile info deleted successfully');
     }
 }

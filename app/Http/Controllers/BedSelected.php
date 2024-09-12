@@ -38,7 +38,7 @@ class BedSelected extends Controller
         );
         $selectbed= new Selectbed ($request->all());
         $selectbed->save();
-        return redirect('/selectbeds')->with('sucess',"BedSelected Data Has Been inserted");
+        return redirect('/selectbeds')->with('success',"BedSelected Data Has Been inserted");
     }
 
     public function update(Request $request, $id) {
@@ -53,7 +53,7 @@ class BedSelected extends Controller
         $selectbed = Selectbed::find($id);
         $selectbed->update($request->all());
     
-        return redirect('/selectbeds')->with('sucess',"BedSelected Data Has Been updated");
+        return redirect('/selectbeds')->with('success',"BedSelected Data Has Been updated");
     }
 
     public function destroy($id)
@@ -61,6 +61,6 @@ class BedSelected extends Controller
       $selectbed = Selectbed::find($id);
       $selectbed->delete();
       return redirect('/selectbeds')
-        ->with('success', 'BedSelected '.$id.'info deleted successfully');
+        ->with('success', 'BedSelected info deleted successfully');
     }
 }
