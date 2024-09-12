@@ -30,16 +30,23 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <!-- User Type -->
+        @if (!$rentalOwnerExists)
         <div class="mt-4">
-            <x-input-label for="user_type" :value="__('User Type')" />
-            <select id="user_type" name="user_type" class="block mt-1 w-full" required>
-                <option value="" disabled selected>{{ __('Select user type') }}</option>
-                <option value="tenant">{{ __('Tenant') }}</option>
-                <option value="rental_owner">{{ __('Rental Owner') }}</option>
-            </select>
-            <x-input-error :messages="$errors->get('user_type')" class="mt-2" />
+        <x-input-label for="user_type" :value="__('User Type')" />
+        <select id="user_type" name="user_type" class="block mt-1 w-full" required> 
+            <option value="" disabled selected>{{ __('Select user type') }}</option>
+            <option value="tenant">{{ __('Tenant') }}</option>
+            <option value="rental_owner">{{ __('Rental Owner') }}</option>
+        </select>
+        <x-input-error :messages="$errors->get('user_type')" class="mt-2" />
         </div>
+         @else
+        <div class="mt-4" style="display: none;">
+        <x-input-label for="user_type" :value="__('User Type')" />
+        <input type="text" id="user_type" name="user_type" value="tenant" class="block mt-1 w-full" readonly />
+        <x-input-error :messages="$errors->get('user_type')" class="mt-2" />
+        </div>
+         @endif
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-white dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" 

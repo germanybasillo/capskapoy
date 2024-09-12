@@ -19,11 +19,13 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
-    public function create(): View
+   public function create(): View
     {
-        return view('auth.register');
-    }
+        // Check if there is already a rental_owner registered
+        $rentalOwnerExists = User::where('user_type', 'rental_owner')->exists();
 
+        return view('auth.register', ['rentalOwnerExists' => $rentalOwnerExists]);
+    }
     /**
      * Handle an incoming registration request.
      *
@@ -48,6 +50,8 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+       
+
 
         Session::flash('swal:register', 'Registration successful! Logging you in.');
 
