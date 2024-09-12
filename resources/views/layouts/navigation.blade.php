@@ -39,7 +39,17 @@
             <a href="/dashboard" class="nav-link">
               <i class="nav-icon fa fa-tachometer-alt"></i>
               <p>
+                @if (auth()->user()->user_type === 'tenant')
                 Dashboard
+                @elseif (auth()->user()->user_type === 'rental_owner')
+                @php
+                $tenantprofiles = \App\Models\TenantProfile::count();
+                $rooms = \App\Models\Room::count();
+                $beds = \App\Models\Bed::count();
+                $total = $tenantprofiles + $rooms + $beds;
+                @endphp
+                Dashboard  ({{ $total }})
+                @endif
               </p>
             </a>
           </li>
@@ -57,7 +67,10 @@
             <a href="/bedassigns" class="nav-link">
               <i class="nav-icon fa fa-bed"></i>
               <p>
-                Bed Assignment
+                @php
+                $bedassigns = \App\Models\Bedassign::count();
+                @endphp
+                Bed Assignment  ({{ $bedassigns }})
               </p>
             </a>
           </li>
@@ -65,7 +78,10 @@
             <a href="/selecteds" class="nav-link">
               <i class="nav-icon fa fa-home"></i>
               <p>
-                Room Selected
+                @php
+                $selecteds = \App\Models\Selected::count();
+                @endphp
+                Room Selected  ({{ $selecteds }})
               </p>
             </a>
           </li>
@@ -73,7 +89,10 @@
             <a href="/selectbeds" class="nav-link">
               <i class="nav-icon fa fa-home"></i>
               <p>
-                Bed Selected
+                @php
+                $selectbeds = \App\Models\Selectbed::count();
+                @endphp
+                Bed Selected  ({{ $selectbeds }})
               </p>
             </a>
           </li>

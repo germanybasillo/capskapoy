@@ -73,7 +73,28 @@
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
-   
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+      document.getElementById('quickForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting immediately
+  
+        Swal.fire({
+            // title: 'Are you sure?',
+            // text: 'Do you want to save the changes?',
+            icon: null, // Disable the default icon
+            html: '<img src="{{ asset('logo.png') }}" alt="Logo" width="50" height="46"><br><h2>Are you sure?</h2>Do you want to update this bed assign?',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, save it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                event.target.submit(); // If confirmed, submit the form
+            }
+        });
+    });
+  </script>
 
     
 
